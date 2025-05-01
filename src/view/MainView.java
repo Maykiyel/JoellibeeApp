@@ -69,7 +69,7 @@ public class MainView extends JFrame {
     }
 
     private JPanel createMenuPanel() {
-        JPanel panel = new JPanel(new GridLayout(3, 3, 12, 12));
+        JPanel panel = new JPanel(new GridLayout(3, 3, 8, 8));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         panel.setBackground(new Color(245, 245, 245));
 
