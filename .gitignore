@@ -1,0 +1,41 @@
+# For IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# For Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# For NetBeans
+nbproject/
+build/
+nbbuild/
+dist/
+nbdist/
+
+# For VS Code
+.vscode/
+
+# Compiled class files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# virtual machine crash logs
+hs_err_pid*
