@@ -22,19 +22,19 @@ public class MenuManager {
      */
     private void initializeMenu() {
         // Add meals
-        menuItems.add(new MenuItem("Joe Burger", 120, "img/burger.png", MenuItem.Type.MEAL));
-        menuItems.add(new MenuItem("Joelly Spaghetti", 100, "img/spaghetti.png", MenuItem.Type.MEAL));
-        menuItems.add(new MenuItem("Chicken Joe", 150, "img/chicken.png", MenuItem.Type.MEAL));
+        menuItems.add(new MenuItem("Joe Burger", 120, "../img/burger.png", MenuItem.Type.MEAL));
+        menuItems.add(new MenuItem("Joelly Spaghetti", 100, "../img/spaghetti.png", MenuItem.Type.MEAL));
+        menuItems.add(new MenuItem("Chicken Joe", 150, "../img/chicken.png", MenuItem.Type.MEAL));
 
         // Add drinks
-        menuItems.add(new MenuItem("Soda", 40, "img/soda.png", MenuItem.Type.DRINK));
-        menuItems.add(new MenuItem("Iced Tea", 50, "img/icedtea.png", MenuItem.Type.DRINK));
-        menuItems.add(new MenuItem("Coffee", 45, "img/coffee.png", MenuItem.Type.DRINK));
+        menuItems.add(new MenuItem("Soda", 40, "../img/soda.png", MenuItem.Type.DRINK));
+        menuItems.add(new MenuItem("Iced Tea", 50, "../img/icedtea.png", MenuItem.Type.DRINK));
+        menuItems.add(new MenuItem("Coffee", 45, "../img/coffee.png", MenuItem.Type.DRINK));
 
         // Add desserts and sides
-        menuItems.add(new MenuItem("Sundae", 35, "img/sundae.png", MenuItem.Type.DESSERT));
-        menuItems.add(new MenuItem("Cone Twirl", 30, "img/cone.png", MenuItem.Type.DESSERT));
-        menuItems.add(new MenuItem("Fries", 25, "img/fries.png", MenuItem.Type.SIDE));
+        menuItems.add(new MenuItem("Sundae", 35, "../img/sundae.png", MenuItem.Type.DESSERT));
+        menuItems.add(new MenuItem("Cone Twirl", 30, "../img/cone.png", MenuItem.Type.DESSERT));
+        menuItems.add(new MenuItem("Fries", 25, "../img/fries.png", MenuItem.Type.SIDE));
     }
 
     /**
