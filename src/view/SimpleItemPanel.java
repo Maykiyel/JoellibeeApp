@@ -20,7 +20,7 @@ public class SimpleItemPanel extends ItemPanel {
 
         SpinnerModel spinnerModel = new SpinnerNumberModel(1, 1, 10, 1);
         quantitySpinner = new JSpinner(spinnerModel);
-        quantitySpinner.setPreferredSize(new Dimension(50, 25));
+        quantitySpinner.setPreferredSize(new Dimension(54, 20));
         quantityPanel.add(quantitySpinner);
 
         add(quantityPanel);

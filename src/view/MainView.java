@@ -100,6 +100,10 @@ public class MainView extends JFrame {
         takeOutRadio.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         deliveryRadio.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 
+        dineInRadio.setBackground(Color.WHITE);
+        takeOutRadio.setBackground(Color.WHITE);
+        deliveryRadio.setBackground(Color.WHITE);
+
         orderTypeGroup = new ButtonGroup();
         orderTypeGroup.add(dineInRadio);
         orderTypeGroup.add(takeOutRadio);

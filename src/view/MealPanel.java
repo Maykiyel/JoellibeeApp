@@ -22,10 +22,13 @@ public class MealPanel extends ItemPanel {
 
         SpinnerModel spinnerModel = new SpinnerNumberModel(1, 1, 10, 1);
         quantitySpinner = new JSpinner(spinnerModel);
-        quantitySpinner.setPreferredSize(new Dimension(50, 25));
+        quantitySpinner.setPreferredSize(new Dimension(54, 20));
         quantityPanel.add(quantitySpinner);
 
         add(quantityPanel);
+
+        JPanel addonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        addonPanel.setBackground(Color.WHITE);
 
         // Options
         friesCheckBox = new JCheckBox("Add Fries (+₱20)");
@@ -39,8 +42,10 @@ public class MealPanel extends ItemPanel {
         drinkCheckBox.setBackground(Color.WHITE);
         drinkCheckBox.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        add(friesCheckBox);
-        add(drinkCheckBox);
+        addonPanel.add(friesCheckBox);
+        addonPanel.add(drinkCheckBox);
+
+        add(addonPanel);
 
         // Add button
         createAddButton();

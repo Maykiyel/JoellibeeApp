@@ -7,7 +7,7 @@ import java.awt.*;
  * Custom panel with rounded corners and a subtle shadow effect
  */
 public class RoundedPanel extends JPanel {
-    private final int cornerRadius = 15;
+    private final int cornerRadius = 16;
 
     public RoundedPanel() {
         setOpaque(false);
