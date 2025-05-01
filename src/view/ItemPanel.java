@@ -21,6 +21,10 @@ public abstract class ItemPanel extends RoundedPanel {
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
+        // Set preferred and minimum size to ensure consistent panel dimensions
+        setPreferredSize(new Dimension(250, 280));
+        setMinimumSize(new Dimension(220, 280));
+
         setupBaseComponents();
     }
 
@@ -35,7 +39,7 @@ public abstract class ItemPanel extends RoundedPanel {
         java.net.URL imgURL = getClass().getResource(menuItem.getImagePath());
         if (imgURL != null) {
             ImageIcon originalIcon = new ImageIcon(imgURL);
-            Image scaledImage = originalIcon.getImage().getScaledInstance(72, 72, Image.SCALE_SMOOTH);
+            Image scaledImage = originalIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
             imageLabel = new JLabel(new ImageIcon(scaledImage));
         } else {
             imageLabel = new JLabel("Image not found");
@@ -44,9 +48,9 @@ public abstract class ItemPanel extends RoundedPanel {
 
         // Add components
         add(nameLabel);
-        add(Box.createVerticalStrut(2));
+        add(Box.createVerticalStrut(5));
         add(imageLabel);
-        add(Box.createVerticalStrut(2));
+        add(Box.createVerticalStrut(10));
     }
 
     // Create and add the add button
@@ -57,8 +61,11 @@ public abstract class ItemPanel extends RoundedPanel {
         addButton.setForeground(Color.WHITE);
         addButton.setFocusPainted(false);
         addButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        addButton.setMaximumSize(new Dimension(150, 30)); // Limit button width
 
+        add(Box.createVerticalStrut(5));
         add(addButton);
+        add(Box.createVerticalGlue()); // Add glue at the bottom to push components up
     }
 
     // Set action listener for add button

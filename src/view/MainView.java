@@ -16,6 +16,9 @@ public class MainView extends JFrame {
     // Menu panels
     private final List<ItemPanel> itemPanels = new ArrayList<>();
 
+    // Menu container panel
+    private JPanel menuGridPanel;
+
     // Cart components
     private JTextArea cartArea;
     private JLabel totalLabel;
@@ -39,6 +42,7 @@ public class MainView extends JFrame {
     public MainView() {
         setTitle("Joellibee Fast Food Ordering System");
         setSize(1280, 720);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
@@ -57,36 +61,62 @@ public class MainView extends JFrame {
     }
 
     private JPanel createHeaderPanel() {
-        JPanel panel = new JPanel();
+        JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         panel.setBackground(new Color(230, 0, 18));
+
+        ImageIcon logoIcon = new ImageIcon(getClass().getResource("/assets/logo.png"));
+        Image img = logoIcon.getImage();
+        Image resizedImg = img.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        ImageIcon resizedIcon = new ImageIcon(resizedImg);
+
+        JLabel imageLabel = new JLabel(resizedIcon);
+
+        panel.add(Box.createHorizontalStrut(10));
 
         JLabel logo = new JLabel("Joellibee");
         logo.setFont(new Font("Segoe UI", Font.BOLD, 32));
         logo.setForeground(Color.WHITE);
         panel.add(logo);
+        panel.add(imageLabel);
 
         return panel;
     }
 
-    private JPanel createMenuPanel() {
-        JPanel panel = new JPanel(new GridLayout(3, 3, 8, 8));
-        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        panel.setBackground(new Color(245, 245, 245));
+    private JScrollPane createMenuPanel() {
+        // Create the grid panel with 3 columns and variable rows
+        menuGridPanel = new JPanel(new GridLayout(0, 3, 12, 12));
+        menuGridPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        menuGridPanel.setBackground(new Color(245, 245, 245));
 
-        // These will be populated by the controller
-        return panel;
+        // Wrap the grid panel in a scroll pane
+        JScrollPane scrollPane = new JScrollPane(menuGridPanel);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16); // Smoother scrolling
+
+        return scrollPane;
     }
 
     public void addItemPanel(ItemPanel itemPanel) {
-        JPanel menuPanel = (JPanel) getContentPane().getComponent(1);
+        // Get the scroll pane
+        JScrollPane scrollPane = (JScrollPane) getContentPane().getComponent(1);
+        // Get the menu grid panel inside the scroll pane
+        JPanel menuPanel = (JPanel) scrollPane.getViewport().getView();
+
         menuPanel.add(itemPanel);
         itemPanels.add(itemPanel);
+
+        // Refresh the panel
+        menuPanel.revalidate();
+        menuPanel.repaint();
     }
 
     private JPanel createCartPanel() {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(Color.WHITE);
         panel.setBorder(new TitledBorder("Your Order"));
+        panel.setPreferredSize(new Dimension(350, getHeight())); // Fix width for cart panel
 
         // Order type panel
         JPanel orderTypePanel = new JPanel();

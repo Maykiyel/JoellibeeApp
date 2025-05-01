@@ -15,22 +15,36 @@ public class MealPanel extends ItemPanel {
     public MealPanel(MenuItem menuItem) {
         super(menuItem);
 
-        // Quantity spinner
-        JPanel quantityPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        // Quantity spinner with panel that fully contains it
+        JPanel quantityPanel = new JPanel();
+        quantityPanel.setLayout(new BoxLayout(quantityPanel, BoxLayout.X_AXIS));
         quantityPanel.setBackground(Color.WHITE);
-        quantityPanel.add(new JLabel("Qty:"));
+        quantityPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        quantityPanel.setMaximumSize(new Dimension(200, 30));
+
+        JLabel qtyLabel = new JLabel("Qty: ");
+        qtyLabel.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 
         SpinnerModel spinnerModel = new SpinnerNumberModel(1, 1, 10, 1);
         quantitySpinner = new JSpinner(spinnerModel);
-        quantitySpinner.setPreferredSize(new Dimension(54, 20));
+        quantitySpinner.setMaximumSize(new Dimension(60, 25));
+        quantitySpinner.setPreferredSize(new Dimension(60, 25));
+
+        quantityPanel.add(Box.createHorizontalGlue());
+        quantityPanel.add(qtyLabel);
         quantityPanel.add(quantitySpinner);
+        quantityPanel.add(Box.createHorizontalGlue());
 
         add(quantityPanel);
+        add(Box.createVerticalStrut(5));
 
-        JPanel addonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        addonPanel.setBackground(Color.WHITE);
+        // Options panel to contain checkboxes
+        JPanel optionsPanel = new JPanel();
+        optionsPanel.setLayout(new BoxLayout(optionsPanel, BoxLayout.Y_AXIS));
+        optionsPanel.setBackground(Color.WHITE);
+        optionsPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        optionsPanel.setMaximumSize(new Dimension(200, 60));
 
-        // Options
         friesCheckBox = new JCheckBox("Add Fries (+₱20)");
         drinkCheckBox = new JCheckBox("Add Drink (+₱25)");
 
@@ -42,10 +56,11 @@ public class MealPanel extends ItemPanel {
         drinkCheckBox.setBackground(Color.WHITE);
         drinkCheckBox.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        addonPanel.add(friesCheckBox);
-        addonPanel.add(drinkCheckBox);
+        optionsPanel.add(friesCheckBox);
+        optionsPanel.add(drinkCheckBox);
 
-        add(addonPanel);
+        add(optionsPanel);
+        add(Box.createVerticalStrut(5));
 
         // Add button
         createAddButton();
