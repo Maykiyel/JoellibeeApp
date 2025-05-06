@@ -2,8 +2,6 @@
 
 A Java-based desktop application that simulates a fast-food restaurant ordering system with a user-friendly interface built using Java Swing.
 
-![Joellibee Logo](src/assets/logo.png)
-
 ## 🍔 Overview
 
 Joellibee is a fast food ordering application that allows users to:
